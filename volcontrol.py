@@ -3,6 +3,10 @@ import time
 import numpy as np
 import handtrackmodule as htm
 import math as m
+import osascript
+
+volumeRange = osascript.osascript('get volume settings')
+print(volumeRange)
 
 ###############
 wCam, hCam = 640, 480
@@ -38,11 +42,16 @@ while True:
     cv2.line(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
 
     length = m.hypot(x2 - x1, y2 - y1)
-    print(length)
+    # print(length)
+
+    # Hand Range - 50 - 350
+    # Volume Range - 0 - 100
+
+    # vol = np.interp(length, [50, 300], [minVolume, maxVolume])
+    # print(vol)
 
     if length < 50:
         cv2.circle(img, (cx, cy), 15, (0, 255, 0), cv2.FILLED)
-
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
