@@ -5,8 +5,11 @@ import handtrackmodule as htm
 import math as m
 import osascript
 
-volumeRange = osascript.osascript('get volume settings')
-print(volumeRange)
+# volumeRange = osascript.osascript('get volume settings')
+# volInfo = volumeRange[1].split(',')
+# outputVol = volInfo[0].replace('output volume:', '')
+# print(outputVol)
+# minVol =
 
 ###############
 wCam, hCam = 640, 480
